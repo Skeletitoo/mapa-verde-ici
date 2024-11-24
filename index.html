@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="pt-5 container-xxl">
+        <h1 class="text-center bg-success-subtle text-success-emphasis">MAPA VERDE</h1>
+        <p class="p-2">El Mapa Verde es una herramienta interactiva diseñada para visualizar y promover la
+            sostenibilidad dentro del
+            campus universitario. Utilizando tecnología basada en OpenStreetMap y Leaflet.js, este mapa identifica y
+            clasifica las ubicaciones de interés ambiental en <strong>tres categorías principales:</strong> </p>
+        <div class="mb-4">
+            <div class="accordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button custom-accordion-button1" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+                            aria-controls="collapseOne">
+                            Áreas Verdes Disponibles
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show " data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Estas áreas están habilitadas para actividades recreativas, deportivas o académicas.
+                            Representan los espacios naturales que los estudiantes y personal pueden disfrutar
+                            libremente.
+                            <br><br>
+                            Color: <strong style="color:#4CAF50">Verde oscuro</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button custom-accordion-button2" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true"
+                            aria-controls="collapseOne">
+                            Áreas Verdes en mantenimiento
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Espacios verdes que actualmente están en proceso de conservación o mejora. Se recomienda no
+                            acceder a estas áreas temporalmente para permitir el adecuado desarrollo de los trabajos.
+                            <br><br>
+                            Color: <strong style="color:#FF9800">Anaranjado</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button custom-accordion-button3" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="true"
+                            aria-controls="collapseOne">
+                            Tachos de reciclaje
+                        </button>
+                    </h2>
+                    <div id="collapse3" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Puntos estratégicamente ubicados dentro del campus donde los usuarios pueden depositar
+                            residuos reciclables como papel, plástico, vidrio y metal, fomentando el manejo responsable
+                            de desechos.
+                            <br><br>
+                            Color: <strong style="color:#39FF14">Verde Fluorescente</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-3" id="map"></div>
+        <div>
+            <footer class="footer mt-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-center">
+                            <p style="font-family:'Times New Roman', Times, serif;">Grupo: 1</p>
+                            <p style="font-family:'Times New Roman', Times, serif;">Curso: Introducción a Ciencias e Ingenierías</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <style>
+        #map {
+            height: 600px;
+        }
+    </style>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+
+
+
+
+
+
+    <script> //Mapa
+        let map = L.map('map').setView([-12.056432, -77.084330], 17);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+    </script>
+    <script id="tachos"> //Código de los marcadores para los tachos
+        var circle = L.circle([-12.055977, -77.081545], {
+            color: '#39FF14',
+            fillColor: '#39FF14',
+            fillOpacity: 0.2,
+            radius: 10,
+        }).addTo(map).bindPopup("<b>Punto de Reciclaje</b><br>Depósito de residuos reciclables.");
+
+        var circle = L.circle([-12.055012, -77.085976], {
+            color: '#39FF14',
+            fillColor: '#39FF14',
+            fillOpacity: 0.2,
+            radius: 10,
+        }).addTo(map).bindPopup("<b>Punto de Reciclaje</b><br>Depósito de residuos reciclables.");
+
+        var circle = L.circle([-12.057166, -77.080282], {
+            color: '#39FF14',
+            fillColor: '#39FF14',
+            fillOpacity: 0.2,
+            radius: 10,
+        }).addTo(map).bindPopup("<b>Punto de Reciclaje</b><br>Depósito de residuos reciclables.");
+
+        var circle = L.circle([-12.058754, -77.081049], {
+            color: '#39FF14',
+            fillColor: '#39FF14',
+            fillOpacity: 0.2,
+            radius: 10,
+        }).addTo(map).bindPopup("<b>Punto de Reciclaje</b><br>Depósito de residuos reciclables.");
+
+        var circle = L.circle([-12.059534, -77.079636], {
+            color: '#39FF14',
+            fillColor: '#39FF14',
+            fillOpacity: 0.2,
+            radius: 10,
+        }).addTo(map).bindPopup("<b>Punto de Reciclaje</b><br>Depósito de residuos reciclables.");
+        var circle = L.circle([-12.059498, -77.081674], {
+            color: '#39FF14',
+            fillColor: '#39FF14',
+            fillOpacity: 0.2,
+            radius: 10,
+        }).addTo(map).bindPopup("<b>Punto de Reciclaje</b><br>Depósito de residuos reciclables.");
+        var circle = L.circle([-12.060101, -77.080497], {
+            color: '#39FF14',
+            fillColor: '#39FF14',
+            fillOpacity: 0.2,
+            radius: 10,
+        }).addTo(map).bindPopup("<b>Punto de Reciclaje</b><br>Depósito de residuos reciclables.");
+        var circle = L.circle([-12.059508, -77.083168], {
+            color: '#39FF14',
+            fillColor: '#39FF14',
+            fillOpacity: 0.2,
+            radius: 10,
+        }).addTo(map).bindPopup("<b>Punto de Reciclaje</b><br>Depósito de residuos reciclables.");
+    </script>
+    <script id="areasverdes">
+        L.circle([-12.053780, -77.086623], {
+            color: "#4CAF50",       // Color del borde (verde claro)
+            fillColor: "#A5D6A7",   // Color de relleno (verde suave)
+            fillOpacity: 0.5,       // Transparencia del relleno
+            radius: 30              // Radio en metros
+        }).addTo(map)
+            .bindPopup("<b>Área Verde Disponible</b><br>Zona habilitada para actividades recreativas.");
+    </script>
+    <script id="mantenimiento">
+        L.circle([-12.053590, -77.084939], {
+            color: "#FF9800",       // Color del borde (anaranjado)
+            fillColor: "#FFE0B2",   // Color de relleno (anaranjado suave)
+            fillOpacity: 0.5,
+            radius: 25              // Radio en metros
+        }).addTo(map)
+            .bindPopup("<b>Área Verde en Mantenimiento</b><br>Zona temporalmente restringida por mejoras.");
+
+        L.circle([-12.057991, -77.085968], {
+            color: "#FF9800",       // Color del borde (anaranjado)
+            fillColor: "#FFE0B2",   // Color de relleno (anaranjado suave)
+            fillOpacity: 0.5,
+            radius: 25              // Radio en metros
+        }).addTo(map)
+            .bindPopup("<b>Área Verde en Mantenimiento</b><br>Zona temporalmente restringida por mejoras."); 
+    </script>
+
+</body>
+
+</html>

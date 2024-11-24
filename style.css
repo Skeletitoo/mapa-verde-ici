@@ -1,0 +1,65 @@
+.custom-accordion-button1 {
+    background-color: #4CAF50;  /* Verde oscuro */
+    color: white;               /* Texto en blanco */
+    border: none;               /* Quitar borde */
+}
+
+/* Cambiar el color de fondo y texto cuando el acordeón está abierto */
+.custom-accordion-button1:not(.collapsed) {
+    background-color: #4CAF50;  /* Un verde aún más oscuro */
+    color: white;               /* Texto en blanco */
+}
+
+/* Cambiar el color del borde cuando el acordeón está abierto */
+.custom-accordion-button1:focus {
+    box-shadow: none;           /* Quitar sombra al hacer focus */
+}
+
+/* Cambiar el color del icono de expansión cuando el acordeón está abierto */
+.custom-accordion-button1.collapsed::after {
+    color: white;    
+}
+
+.custom-accordion-button2 {
+    background-color: #FF9800;  /* Verde oscuro */
+    color: white;               /* Texto en blanco */
+    border: none;               /* Quitar borde */
+}
+
+/* Cambiar el color de fondo y texto cuando el acordeón está abierto */
+.custom-accordion-button2:not(.collapsed) {
+    background-color: #FF9900;  /* Un verde aún más oscuro */
+    color: white;               /* Texto en blanco */
+}
+
+/* Cambiar el color del borde cuando el acordeón está abierto */
+.custom-accordion-button2:focus {
+    box-shadow: none;           /* Quitar sombra al hacer focus */
+}
+
+/* Cambiar el color del icono de expansión cuando el acordeón está abierto */
+.custom-accordion-button2.collapsed::after {
+    color: white;    
+}
+
+.custom-accordion-button3 {
+    background-color: #39FF14;  /* Verde oscuro */
+    color: black;               /* Texto en blanco */
+    border: none;               /* Quitar borde */
+}
+
+/* Cambiar el color de fondo y texto cuando el acordeón está abierto */
+.custom-accordion-button3:not(.collapsed) {
+    background-color: #39FF14;  /* Un verde aún más oscuro */
+    color: black;               /* Texto en blanco */
+}
+
+/* Cambiar el color del borde cuando el acordeón está abierto */
+.custom-accordion-button3:focus {
+    box-shadow: none;           /* Quitar sombra al hacer focus */
+}
+
+/* Cambiar el color del icono de expansión cuando el acordeón está abierto */
+.custom-accordion-button3.collapsed::after {
+    color: white;    
+}
